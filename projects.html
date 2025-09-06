@@ -1,1 +1,52 @@
-<!doctype html><html><head><meta charset='utf-8'><title>Projects</title></head><body><h1>Проекты (placeholder)</h1></body></html>
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Проекты — SignalHub</title>
+<meta name="description" content="Пять кейсов: авто, электроника, услуги, офлайн, B2B. Таблицы и графики: слева затраты, справа прибыль.">
+<link rel="canonical" href="/projects.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
+<header><div class="wrap bar"><div class="logo">SignalHub</div>
+<nav><a href="/">Главная</a><a href="/calculator.html">Генератор</a><a href="/projects.html">Проекты</a><a href="/contacts.html">Контакты</a></nav></div></header>
+<main class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
+<div id="cases"></div></main>
+<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const f=(n)=>n.toLocaleString('ru-RU'); const money=(n)=>'€'+n.toLocaleString('ru-RU'); const host=document.getElementById('cases');
+const cases=[
+ {key:'auto', title:'Авто-ритейл', spend:[120000,150000,170000], years:['2023','2024','2025'], cpl:60, conv:0.12, aov:3500, margin:0.28},
+ {key:'electronics', title:'Электроника (e-commerce)', spend:[200000,220000,240000], years:['2023','2024','2025'], cpl:18, conv:0.06, aov:220, margin:0.22},
+ {key:'services', title:'Услуги (сервис/ремонт)', spend:[80000,95000,110000], years:['2023','2024','2025'], cpl:25, conv:0.25, aov:180, margin:0.5},
+ {key:'offline', title:'Локальный офлайн', spend:[50000,65000,75000], years:['2023','2024','2025'], cpl:20, conv:0.08, aov:160, margin:0.4},
+ {key:'b2b', title:'B2B-услуги', spend:[60000,70000,85000], years:['2023','2024','2025'], cpl:120, conv:0.2, aov:4800, margin:0.55},
+];
+cases.forEach(cs=>{
+  const rows = cs.years.map((y,i)=>{
+    const spend=cs.spend[i]; const leads=Math.round(spend/cs.cpl);
+    const deals=Math.round(leads*cs.conv); const rev=Math.round(deals*cs.aov);
+    const profit=Math.round(rev*cs.margin - spend); const romi=profit/spend;
+    return {year:y, spend, leads, conv:cs.conv, deals, aov:cs.aov, rev, margin:cs.margin, profit, romi};
+  });
+  const wrap=document.createElement('section'); wrap.className='card mt-2';
+  wrap.innerHTML=`
+    <h2>${cs.title}</h2>
+    <div class="row">
+      <div class="col">
+        <table>
+          <thead><tr><th>Год</th><th>Spend</th><th>Leads</th><th>Conv%</th><th>Deals</th><th>AvgDeal</th><th>Revenue</th><th>Margin%</th><th>Profit</th><th>ROMI</th></tr></thead>
+          <tbody>
+            ${rows.map(r=>`<tr>
+              <td>${r.year}</td><td>${money(r.spend)}</td><td>${f(r.leads)}</td><td>${(r.conv*100).toFixed(0)}%</td>
+              <td>${f(r.deals)}</td><td>${money(r.aov)}</td><td>${money(r.rev)}</td><td>${(r.margin*100).toFixed(0)}%</td>
+              <td>${money(r.profit)}</td><td>${(r.romi*100).toFixed(1)}%</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div class="col"><canvas id="chart_${cs.key}" height="240"></canvas></div>
+    </div>`;
+  host.appendChild(wrap);
+  const ctx=document.getElementById(`chart_${cs.key}`);
+  const spend=rows.map(r=>r.spend); const profit=rows.map(r=>r.profit);
+  new Chart(ctx,{type:'bar',data:{labels:cs.years,datasets:[{label:'Spend',data:spend,backgroundColor:'rgba(15,98,254,.4)',yAxisID:'y'},{label:'Profit',data:profit,type:'line',borderColor:'#23a559',borderWidth:2,tension:.2,yAxisID:'y1'}]},options:{plugins:{legend:{display:true}},scales:{y:{position:'left',beginAtZero:true},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false}}}}});
+});
+</script>
+<script src="/assets/js/nav.js"></script></body></html>

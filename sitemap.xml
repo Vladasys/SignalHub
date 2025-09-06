@@ -1,1 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://signalhub.pages.dev/</loc></url>
+  <url><loc>https://signalhub.pages.dev/calculator.html</loc></url>
+  <url><loc>https://signalhub.pages.dev/projects.html</loc></url>
+  <url><loc>https://signalhub.pages.dev/contacts.html</loc></url>
+</urlset>

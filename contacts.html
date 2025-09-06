@@ -1,1 +1,30 @@
-<!doctype html><html><head><meta charset='utf-8'><title>Contacts</title></head><body><h1>Контакты (placeholder)</h1></body></html>
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Контакты — SignalHub</title>
+<meta name="description" content="Отвечаем на любых языках, текстом. Созвоны — только для обсуждения проекта. Сохраняем интригу.">
+<link rel="canonical" href="/contacts.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
+<header><div class="wrap bar"><div class="logo">SignalHub</div>
+<nav><a href="/">Главная</a><a href="/calculator.html">Генератор</a><a href="/projects.html">Проекты</a><a href="/contacts.html">Контакты</a></nav></div></header>
+<main class="wrap"><h1>Контакты</h1>
+<p class="small">Отвечаем на любых языках, текстом. Созвоны и онлайн-встречи — только для обсуждения проекта. Сохраняем интригу: оставляем за собой право не отвечать на неинтересные запросы — без обид, ок?</p>
+<div class="row"><div class="col card"><h2>Отправить сообщение</h2>
+<form id="formMsg">
+<label>Имя<br><input name="name" required style="width:100%;padding:10px"></label>
+<label class="mt-1">Компания (опц.)<br><input name="company" style="width:100%;padding:10px"></label>
+<label class="mt-1">Email<br><input type="email" name="email" required style="width:100%;padding:10px"></label>
+<label class="mt-1">Telegram (опц.)<br><input name="tg" placeholder="@username" style="width:100%;padding:10px"></label>
+<label class="mt-1">Сообщение<br><textarea name="message" rows="5" required style="width:100%;padding:10px"></textarea></label>
+<label class="mt-1"><input type="checkbox" required> Согласен на обработку данных</label>
+<button class="btn mt-1" type="submit">Отправить</button></form>
+<div id="formMsgResult" class="hidden mt-1"></div>
+<p class="small">Email приёма заявок настроим на backend: <em>printplus10@gmail.com</em> (не публикуем на сайте).</p></div>
+<div class="col card"><h2>Написать в Telegram</h2>
+<p><a class="btn" href="https://t.me/whioq" target="_blank">@whioq</a></p>
+<p class="small">Подсказка для копипаста:</p>
+<pre class="card">Привет, это компания &lt;название&gt;. Хочу обсудить проект по атрибуции и данным.</pre></div></div></main>
+<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<script>
+const box=document.getElementById('formMsgResult');
+document.getElementById('formMsg').addEventListener('submit',e=>{e.preventDefault();box.className='card';box.textContent='Спасибо! Сообщение принято. Мы свяжемся, если это наш тип задачи.';e.target.reset();});
+</script>
+<script src="/assets/js/nav.js"></script></body></html>
