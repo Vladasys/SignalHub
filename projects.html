@@ -3,8 +3,20 @@
 <title>Проекты — SignalHub</title>
 <meta name="description" content="Пять кейсов: авто, электроника, услуги, офлайн, B2B. Таблицы и графики: слева затраты, справа прибыль.">
 <link rel="canonical" href="/projects.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
-<header><div class="wrap bar"><div class="logo">SignalHub</div>
-<nav><a href="/">Главная</a><a href="/calculator.html">Генератор</a><a href="/projects.html">Проекты</a><a href="/contacts.html">Контакты</a></nav></div></header>
+<header>
+  <div class="wrap bar">
+    <div class="logo">SignalHub</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/calculator.html">Генератор</a>
+      <a href="/projects.html">Проекты</a>
+      <a href="/contacts.html">Контакты</a>
+    </nav>
+  </div>
+  <!-- Прогресс чтения -->
+  <div id="readProgress" aria-hidden="true"></div>
+</header>
 <main class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
 <div id="cases"></div></main>
 <footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
