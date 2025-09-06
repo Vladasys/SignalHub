@@ -16,3 +16,33 @@ th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3
 .row{display:flex;gap:14px;flex-wrap:wrap}.row>.col{flex:1 1 320px}
 .sliders label{display:block;margin-top:10px}input[type=range]{width:100%}
 .mt-1{margin-top:8px}.mt-2{margin-top:16px}.mt-3{margin-top:24px}.hidden{display:none}pre{white-space:pre-wrap}
+/* Benefit bar */
+.benefit-bar .metric { text-align:center; background:#fff; }
+.metric-num { font-size:26px; font-weight:800; margin-bottom:6px }
+
+/* TL;DR */
+.tldr { background:#fffdf2; border:1px solid #ffe7a3 }
+
+/* Myth vs Reality */
+.mv details summary { cursor:pointer; list-style:none }
+.mv details[open] { background:#ffffff }
+.mv .card { background:#fafafa }
+
+/* Sticky CTA */
+.sticky-cta { position:fixed; right:16px; bottom:16px; display:flex; gap:8px; z-index:20 }
+.sticky-cta .btn { background:#111; color:#fff; border-color:#111 }
+.sticky-cta .btn:hover { background:#000 }
+
+/* Reading progress */
+#readProgress { position:fixed; top:0; left:0; height:3px; width:0; background:#0f62fe; z-index:30 }
+
+/* Mobile nav */
+.nav-toggle { display:none; border:1px solid #111; background:#fff; padding:6px 10px; border-radius:8px }
+@media (max-width: 720px) {
+  .bar { align-items:flex-start }
+  .nav-toggle { display:block }
+  header nav { display:none; width:100%; margin-top:8px }
+  body.nav-open header nav { display:block }
+  header nav a { display:block; margin:6px 0 0 0; padding:10px; border:1px solid #eee; border-radius:8px }
+  .sticky-cta { left:16px; right:auto; bottom:12px; flex-wrap:wrap }
+}
