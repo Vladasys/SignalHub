@@ -28,6 +28,31 @@ th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3
 .mv details[open] { background:#ffffff }
 .mv .card { background:#fafafa }
 
+/* Flow steps */
+.flow .card { text-align:center }
+
+/* Mini calculator */
+.mini-calc .results .card { text-align:center }
+.calc-num { font-size:26px; font-weight:800; margin-bottom:6px }
+
+/* Case teasers */
+.cases .case { text-decoration:none; color:inherit; display:block }
+.cases .spark { width:60px; height:24px; margin-top:8px }
+.cases .cost { stroke:#d9534f; fill:none; stroke-width:2 }
+.cases .rev { stroke:#28a745; fill:none; stroke-width:2 }
+
+/* Scroll story */
+.story-strip { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory }
+.story-step { flex:0 0 80%; min-width:220px; scroll-snap-align:center }
+.story-step.active { border-color:#111; background:#fff }
+
+/* FAQ */
+.faq details summary { cursor:pointer; list-style:none }
+
+/* Works with */
+.works-list { display:flex; flex-wrap:wrap; gap:8px }
+.badge { border:1px solid #eee; border-radius:8px; padding:6px 10px }
+
 /* Sticky CTA */
 .sticky-cta { position:fixed; right:16px; bottom:16px; display:flex; gap:8px; z-index:20 }
 .sticky-cta .btn { background:#111; color:#fff; border-color:#111 }
@@ -43,6 +68,6 @@ th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3
   .nav-toggle { display:block }
   header nav { display:none; width:100%; margin-top:8px }
   body.nav-open header nav { display:block }
-  header nav a { display:block; margin:6px 0 0 0; padding:10px; border:1px solid #eee; border-radius:8px }
+  header nav a { display:block; margin:6px 0 0 0; padding:10px; border:1px solid #eee; border-radius:8px; word-break:break-word }
   .sticky-cta { left:16px; right:auto; bottom:12px; flex-wrap:wrap }
 }

@@ -17,6 +17,10 @@
       const open = document.body.classList.toggle('nav-open');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    if (nav) nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded','false');
+    }));
   }
 
   // Reading progress (only on pages with <main>)
@@ -31,6 +35,40 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  }
+
+  // Mini calculator
+  const b = document.getElementById('mcBudget');
+  const c = document.getElementById('mcCpl');
+  const v = document.getElementById('mcConv');
+  const lOut = document.getElementById('mcLeads');
+  const dOut = document.getElementById('mcDeals');
+  const rOut = document.getElementById('mcRev');
+  const AOV = 1200;
+  if (b && c && v) {
+    const calc = () => {
+      const leads = Math.round(b.value / c.value);
+      const deals = Math.round(leads * (v.value/100));
+      const rev = Math.round(deals * AOV);
+      lOut.textContent = leads.toLocaleString('ru-RU');
+      dOut.textContent = deals.toLocaleString('ru-RU');
+      rOut.textContent = rev.toLocaleString('ru-RU');
+    };
+    [b,c,v].forEach(el => el.addEventListener('input', calc));
+    calc();
+  }
+
+  // Scroll story
+  const strip = document.querySelector('.story-strip');
+  if (strip) {
+    const steps = strip.querySelectorAll('.story-step');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('active');
+        else e.target.classList.remove('active');
+      });
+    }, { root: strip, threshold: 0.6 });
+    steps.forEach(s => io.observe(s));
   }
 })();
 
