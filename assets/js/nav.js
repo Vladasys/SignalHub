@@ -41,20 +41,29 @@
   const b = document.getElementById('mcBudget');
   const c = document.getElementById('mcCpl');
   const v = document.getElementById('mcConv');
+  const a = document.getElementById('mcAov');
+  const bVal = document.getElementById('mcBudgetVal');
+  const cVal = document.getElementById('mcCplVal');
+  const vVal = document.getElementById('mcConvVal');
+  const aVal = document.getElementById('mcAovVal');
   const lOut = document.getElementById('mcLeads');
   const dOut = document.getElementById('mcDeals');
   const rOut = document.getElementById('mcRev');
-  const AOV = 1200;
-  if (b && c && v) {
+  if (b && c && v && a) {
+    const fmt = n => Number(n).toLocaleString('ru-RU');
     const calc = () => {
+      bVal.textContent = fmt(b.value);
+      cVal.textContent = fmt(c.value);
+      vVal.textContent = fmt(v.value);
+      aVal.textContent = fmt(a.value);
       const leads = Math.round(b.value / c.value);
       const deals = Math.round(leads * (v.value/100));
-      const rev = Math.round(deals * AOV);
-      lOut.textContent = leads.toLocaleString('ru-RU');
-      dOut.textContent = deals.toLocaleString('ru-RU');
-      rOut.textContent = rev.toLocaleString('ru-RU');
+      const rev = Math.round(deals * a.value);
+      lOut.textContent = fmt(leads);
+      dOut.textContent = fmt(deals);
+      rOut.textContent = fmt(rev);
     };
-    [b,c,v].forEach(el => el.addEventListener('input', calc));
+    [b,c,v,a].forEach(el => el.addEventListener('input', calc));
     calc();
   }
 
