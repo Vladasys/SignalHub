@@ -2,21 +2,22 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Генератор — SignalHub</title>
 <meta name="description" content="Подвигай ползунки и посмотри, как меняются лиды, сделки, выручка и ROMI.">
-<link rel="canonical" href="/calculator.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
-    </nav>
+<link rel="canonical" href="/calculator.html"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="/">SignalHub</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+      </ul>
+    </div>
   </div>
-  <!-- Прогресс чтения -->
-  <div id="readProgress" aria-hidden="true"></div>
-</header>
+</nav>
+<div id="readProgress" aria-hidden="true"></div>
 <main class="wrap">
 <h1>Генератор</h1><p class="small">Формулы: Leads = Budget/CPL; Deals = Leads*Conv; Revenue = Deals*AOV; Profit = Revenue*Margin − Budget; ROMI = Profit/Budget.</p>
 <div class="row"><div class="col card"><div class="sliders">
@@ -39,6 +40,7 @@
 <canvas id="calcChart" class="mt-2" height="280"></canvas></div></div></main>
 <footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/assets/theme/creative/theme.js"></script>
 <script>
 const f = (n)=> n.toLocaleString('ru-RU'); const money = (n)=> '€'+n.toLocaleString('ru-RU');
 const sBudget = document.getElementById('sBudget'), sCpl = document.getElementById('sCpl'), sConv = document.getElementById('sConv'), sAov = document.getElementById('sAov'), sMargin = document.getElementById('sMargin');
@@ -64,4 +66,10 @@ function compute(){
 }
 document.getElementById('btnCalc').addEventListener('click', compute); compute();
 </script>
+<footer class="bg-light py-5">
+  <div class="container px-4 px-lg-5">
+    <div class="small text-center text-muted">© <script>document.write(new Date().getFullYear())</script> SignalHub</div>
+  </div>
+</footer>
+<script src="/assets/theme/creative/theme.js"></script>
 <script src="/assets/js/nav.js"></script></body></html>

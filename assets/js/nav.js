@@ -10,16 +10,13 @@
     });
   }
 
-  // Burger toggle
-  const btn = document.getElementById('navToggle');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    if (nav) nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-      btn.setAttribute('aria-expanded','false');
+
+  // Collapse navbar after link click (Bootstrap)
+  const navCollapse = document.getElementById('navbarResponsive');
+  if (navCollapse) {
+    navCollapse.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      const bsCollapse = bootstrap.Collapse ? bootstrap.Collapse.getInstance(navCollapse) : null;
+      if (bsCollapse) bsCollapse.hide();
     }));
   }
 

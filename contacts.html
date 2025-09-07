@@ -2,21 +2,22 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Контакты — SignalHub</title>
 <meta name="description" content="Отвечаем на любых языках, текстом. Созвоны — только для обсуждения проекта. Сохраняем интригу.">
-<link rel="canonical" href="/contacts.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
-    </nav>
+<link rel="canonical" href="/contacts.html"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="/">SignalHub</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+      </ul>
+    </div>
   </div>
-  <!-- Прогресс чтения -->
-  <div id="readProgress" aria-hidden="true"></div>
-</header>
+</nav>
+<div id="readProgress" aria-hidden="true"></div>
 <main class="wrap"><h1>Контакты</h1>
 <p class="small">Отвечаем на любых языках, текстом. Созвоны и онлайн-встречи — только для обсуждения проекта. Сохраняем интригу: оставляем за собой право не отвечать на неинтересные запросы — без обид, ок?</p>
 <div class="row"><div class="col card"><h2>Отправить сообщение</h2>
@@ -34,9 +35,14 @@
 <p><a class="btn" href="https://t.me/whioq" target="_blank">@whioq</a></p>
 <p class="small">Подсказка для копипаста:</p>
 <pre class="card">Привет, это компания &lt;название&gt;. Хочу обсудить проект по атрибуции и данным.</pre></div></div></main>
-<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<footer class="bg-light py-5">
+  <div class="container px-4 px-lg-5">
+    <div class="small text-center text-muted">© <script>document.write(new Date().getFullYear())</script> SignalHub</div>
+  </div>
+</footer>
 <script>
 const box=document.getElementById('formMsgResult');
 document.getElementById('formMsg').addEventListener('submit',e=>{e.preventDefault();box.className='card';box.textContent='Спасибо! Сообщение принято. Мы свяжемся, если это наш тип задачи.';e.target.reset();});
 </script>
+<script src="/assets/theme/creative/theme.js"></script>
 <script src="/assets/js/nav.js"></script></body></html>
