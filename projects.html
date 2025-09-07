@@ -2,24 +2,30 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Проекты — SignalHub</title>
 <meta name="description" content="Пять кейсов: авто, электроника, услуги, офлайн, B2B. Таблицы и графики: слева затраты, справа прибыль.">
-<link rel="canonical" href="/projects.html"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body>
+<link rel="canonical" href="projects.html"><link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/theme/creative/theme.css"></head><body>
 <header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
-    </nav>
-  </div>
-  <!-- Прогресс чтения -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="/">SignalHub</a>
+      <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+          <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div id="readProgress" aria-hidden="true"></div>
 </header>
-<main class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
-<div id="cases"></div></main>
-<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<main class="container px-4 px-lg-5"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
+<div id="cases"></div><div class="sticky-cta">
+  <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
+  <a href="/contacts.html" class="btn">Обсудить проект</a>
+</div></main>
+<footer class="container px-4 px-lg-5"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 const f=(n)=>n.toLocaleString('ru-RU'); const money=(n)=>'€'+n.toLocaleString('ru-RU'); const host=document.getElementById('cases');
@@ -61,4 +67,5 @@ cases.forEach(cs=>{
   new Chart(ctx,{type:'bar',data:{labels:cs.years,datasets:[{label:'Spend',data:spend,backgroundColor:'rgba(15,98,254,.4)',yAxisID:'y'},{label:'Profit',data:profit,type:'line',borderColor:'#23a559',borderWidth:2,tension:.2,yAxisID:'y1'}]},options:{plugins:{legend:{display:true}},scales:{y:{position:'left',beginAtZero:true},y1:{position:'right',beginAtZero:true,grid:{drawOnChartArea:false}}}}});
 });
 </script>
-<script src="/assets/js/nav.js"></script></body></html>
+<script src="assets/theme/creative/theme.js"></script>
+<script src="assets/js/nav.js"></script></body></html>

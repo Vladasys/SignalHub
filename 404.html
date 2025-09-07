@@ -1,21 +1,28 @@
 <!doctype html><html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Страница не найдена — SignalHub</title>
-<link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body>
+<link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/theme/creative/theme.css"></head><body>
 <header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
-    </nav>
-  </div>
-  <!-- Прогресс чтения -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="/">SignalHub</a>
+      <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+          <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div id="readProgress" aria-hidden="true"></div>
 </header>
-<main class="wrap"><section class="hero"><h1>404</h1><p>Такой страницы нет. Вернуться на <a href="/">главную</a>.</p></section></main>
-<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
-<script src="/assets/js/nav.js"></script></body></html>
+<main class="container px-4 px-lg-5"><section class="masthead"><h1>404</h1><p>Такой страницы нет. Вернуться на <a href="/">главную</a>.</p></section><div class="sticky-cta">
+  <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
+  <a href="/contacts.html" class="btn">Обсудить проект</a>
+</div></main>
+<footer class="container px-4 px-lg-5"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<script src="assets/theme/creative/theme.js"></script>
+<script src="assets/js/nav.js"></script></body></html>

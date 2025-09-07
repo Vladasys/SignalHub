@@ -10,15 +10,16 @@
     });
   }
 
-  // Burger toggle
+  // Burger toggle for collapsible nav
   const btn = document.getElementById('navToggle');
-  if (btn) {
+  const menu = document.getElementById('navbarResponsive');
+  if (btn && menu) {
     btn.addEventListener('click', () => {
-      const open = document.body.classList.toggle('nav-open');
+      const open = menu.classList.toggle('show');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    if (nav) nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('show');
       btn.setAttribute('aria-expanded','false');
     }));
   }

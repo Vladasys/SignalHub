@@ -34,5 +34,12 @@ SignalHub показывает, что *на самом деле* приноси
 
 ---
 
-🚀 Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)  
+🚀 Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)
 📊 Engineered for clarity, speed, and scale.
+
+## Theme integration
+
+- Base styles live in `assets/theme/creative/theme.css`; custom tweaks are in `assets/css/main.css`.
+- Scripts load in this order before `</body>`: `assets/theme/creative/theme.js` then `assets/js/nav.js`.
+- Navigation markup uses the Creative template classes (`navbar`, `navbar-toggler`, `nav-link`) and is shared across all pages.
+- Site-specific interactive hooks (reading progress, mini-calculator, etc.) are implemented in `assets/js/nav.js`.

@@ -1,73 +1,19 @@
 :root{--w:1000px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-*{box-sizing:border-box}body{margin:0;line-height:1.7;color:#111;background:#fff}
-a{color:inherit}.wrap{max-width:var(--w);margin:0 auto;padding:16px}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
-.bar{display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800}
-nav a{margin-left:14px;text-decoration:none;padding:8px 10px;border-radius:8px}
-nav a.active,nav a:hover{background:#111;color:#fff}
-.hero{background:#f7f8fb;border:1px solid #eee;border-radius:14px;padding:24px}
-.btn{display:inline-block;border:1px solid #111;padding:10px 14px;border-radius:10px;text-decoration:none}
-.btn:hover{background:#111;color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.card{border:1px solid #eee;border-radius:12px;padding:14px;background:#fafafa}
-.small{font-size:.92rem;color:#666}footer{border-top:1px solid #eee;color:#666}
-table{width:100%;border-collapse:collapse;margin:10px 0}
-th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3f8}
-.row{display:flex;gap:14px;flex-wrap:wrap}.row>.col{flex:1 1 320px}
-.sliders label{display:block;margin-top:10px}input[type=range]{width:100%;display:block}
-.mt-1{margin-top:8px}.mt-2{margin-top:16px}.mt-3{margin-top:24px}.hidden{display:none}pre{white-space:pre-wrap}
+.wrap{max-width:var(--w);margin:0 auto;padding:16px}
 /* Benefit bar */
-.benefit-bar .metric { text-align:center; background:#fff; }
-.metric-num { font-size:26px; font-weight:800; margin-bottom:6px }
-
+.benefit-bar .metric{text-align:center}
+.metric-num{font-size:26px;font-weight:800;margin-bottom:6px}
 /* TL;DR */
-.tldr { background:#fffdf2; border:1px solid #ffe7a3 }
-
+.tldr{background:#fffdf2;border:1px solid #ffe7a3}
 /* Myth vs Reality */
-.mv details summary { cursor:pointer; list-style:none }
-.mv details[open] { background:#ffffff }
-.mv .card { background:#fafafa }
-
+.mv details summary{cursor:pointer;list-style:none}
+.mv details[open]{background:#ffffff}
+.mv .card{background:#fafafa}
 /* Flow steps */
-.flow .card { text-align:center }
-
+.flow .card{text-align:center}
 /* Mini calculator */
-.mini-calc .results .card { text-align:center }
-.calc-num { font-size:26px; font-weight:800; margin-bottom:6px }
-
+.mini-calc .results .card{text-align:center}
+.calc-num{font-size:26px;font-weight:800;margin-bottom:6px}
 /* Case teasers */
-.cases .case { text-decoration:none; color:inherit; display:block }
-.cases .spark { width:60px; height:24px; margin-top:8px }
-.cases .cost { stroke:#d9534f; fill:none; stroke-width:2 }
-.cases .rev { stroke:#28a745; fill:none; stroke-width:2 }
-
-/* Scroll story */
-.story-strip { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory }
-.story-step { flex:0 0 80%; min-width:220px; scroll-snap-align:center }
-.story-step.active { border-color:#111; background:#fff }
-
-/* FAQ */
-.faq details summary { cursor:pointer; list-style:none }
-
-/* Works with */
-.works-list { display:flex; flex-wrap:wrap; gap:8px }
-.badge { border:1px solid #eee; border-radius:8px; padding:6px 10px }
-
-/* Sticky CTA */
-.sticky-cta { position:fixed; right:16px; bottom:16px; display:flex; gap:8px; z-index:20 }
-.sticky-cta .btn { background:#111; color:#fff; border-color:#111 }
-.sticky-cta .btn:hover { background:#000 }
-
-/* Reading progress */
-#readProgress { position:fixed; top:0; left:0; height:3px; width:0; background:#0f62fe; z-index:30 }
-
-/* Mobile nav */
-.nav-toggle { display:none; border:1px solid #111; background:#fff; padding:6px 10px; border-radius:8px }
-@media (max-width: 720px) {
-  .bar { align-items:flex-start }
-  .nav-toggle { display:block }
-  header nav { display:none; width:100%; margin-top:8px }
-  body.nav-open header nav { display:block }
-  header nav a { display:block; margin:6px 0 0 0; padding:10px; border:1px solid #eee; border-radius:8px; word-break:break-word }
-  .sticky-cta { left:16px; right:auto; bottom:12px; flex-wrap:wrap }
-}
+.cases .case{text-decoration:none;color:inherit;display:block}
+.cases .spark{width:60px;height:24px;margin-top:8px}
