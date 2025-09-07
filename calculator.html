@@ -2,22 +2,24 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Генератор — SignalHub</title>
 <meta name="description" content="Подвигай ползунки и посмотри, как меняются лиды, сделки, выручка и ROMI.">
-<link rel="canonical" href="/calculator.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
+<link rel="canonical" href="/calculator.html"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body>
+<header class="navbar navbar-expand-lg">
+  <div class="container bar">
+    <a class="navbar-brand logo" href="/">SignalHub</a>
+    <button class="navbar-toggler nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <nav class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+      </ul>
     </nav>
   </div>
-  <!-- Прогресс чтения -->
   <div id="readProgress" aria-hidden="true"></div>
 </header>
-<main class="wrap">
+<main>
+<section class="section"><div class="container">
 <h1>Генератор</h1><p class="small">Формулы: Leads = Budget/CPL; Deals = Leads*Conv; Revenue = Deals*AOV; Profit = Revenue*Margin − Budget; ROMI = Profit/Budget.</p>
 <div class="row"><div class="col card"><div class="sliders">
 <label>Месячный бюджет, € <strong id="sBudgetV">10000</strong><br><input type="range" id="sBudget" min="1000" max="100000" step="500" value="10000"></label>
@@ -29,39 +31,42 @@
 <label>Google % <strong id="pG">50</strong><br><input type="range" id="pGoogle" min="0" max="100" value="50"></label>
 <label>Meta % <strong id="pM">30</strong><br><input type="range" id="pMeta" min="0" max="100" value="30"></label>
 <label>Другие % <strong id="pO">20</strong><br><input type="range" id="pOther" min="0" max="100" value="20"></label>
-</details><button class="btn mt-2" id="btnCalc">Старт</button></div></div>
+</details><button class="btn btn-primary mt-2" id="btnCalc">Старт</button></div></div>
 <div class="col"><div class="grid">
 <div class="card"><div class="small">Лиды</div><div id="kLeads" style="font-size:22px;font-weight:800">—</div></div>
 <div class="card"><div class="small">Сделки</div><div id="kDeals" style="font-size:22px;font-weight:800">—</div></div>
 <div class="card"><div class="small">Выручка</div><div id="kRev" style="font-size:22px;font-weight:800">—</div></div>
-<div class="card"><div class="small">Прибыль</div><div id="kProfit" style="font-size:22px;font-weight:800">—</div></div></div>
+<div class="card"><div class="small">Прибыль</div><div id="kProfit" style="font-size:22px;font-weight:800">—</div></div>
+</div>
 <div class="card"><div class="small">ROMI</div><div id="kRomi" style="font-size:20px;font-weight:700">—</div></div>
-<canvas id="calcChart" class="mt-2" height="280"></canvas></div></div></main>
-<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<canvas id="calcChart" class="mt-2" height="280"></canvas></div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="container"><p class="small text-center">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
-const f = (n)=> n.toLocaleString('ru-RU'); const money = (n)=> '€'+n.toLocaleString('ru-RU');
-const sBudget = document.getElementById('sBudget'), sCpl = document.getElementById('sCpl'), sConv = document.getElementById('sConv'), sAov = document.getElementById('sAov'), sMargin = document.getElementById('sMargin');
-const pGoogle = document.getElementById('pGoogle'), pMeta = document.getElementById('pMeta'), pOther = document.getElementById('pOther');
-const bind = (el, out)=> el.addEventListener('input', ()=>document.getElementById(out).textContent = el.value);
+const f=(n)=> n.toLocaleString('ru-RU'); const money=(n)=> '€'+n.toLocaleString('ru-RU');
+const sBudget=document.getElementById('sBudget'), sCpl=document.getElementById('sCpl'), sConv=document.getElementById('sConv'), sAov=document.getElementById('sAov'), sMargin=document.getElementById('sMargin');
+const pGoogle=document.getElementById('pGoogle'), pMeta=document.getElementById('pMeta'), pOther=document.getElementById('pOther');
+const bind=(el,out)=> el.addEventListener('input',()=>document.getElementById(out).textContent=el.value);
 bind(sBudget,'sBudgetV'); bind(sCpl,'sCplV'); bind(sConv,'sConvV'); bind(sAov,'sAovV'); bind(sMargin,'sMarginV');
 [pGoogle,pMeta,pOther].forEach((el,i)=> el?.addEventListener('input',()=>document.getElementById(['pG','pM','pO'][i]).textContent=el.value));
-const ctx = document.getElementById('calcChart'); let ch;
+const ctx=document.getElementById('calcChart'); let ch;
 function norm(a,b,c){ const s=+a+ +b+ +c; return s? [a/s,b/s,c/s] : [0,0,0]; }
 function compute(){
-  const B = +sBudget.value, CPL=+sCpl.value, CR=+sConv.value/100, AOV=+sAov.value, M=+sMargin.value/100;
-  const leads = Math.floor(B/CPL); const deals = Math.floor(leads*CR); const revenue = Math.round(deals*AOV);
-  const profit = Math.round(revenue*M - B); const romi = (profit/B*100);
-  document.getElementById('kLeads').textContent = f(leads);
-  document.getElementById('kDeals').textContent = f(deals);
-  document.getElementById('kRev').textContent = money(revenue);
-  document.getElementById('kProfit').textContent = money(profit);
-  document.getElementById('kRomi').textContent = (romi>=0?'+':'')+romi.toFixed(1)+'%';
-  const [g,m,o] = norm(+pGoogle?.value||0,+pMeta?.value||0,+pOther?.value||0);
-  const d = { labels:['Google','Meta','Другие'], datasets:[{label:'Бюджет',data:[Math.round(B*g),Math.round(B*m),Math.round(B*o)],backgroundColor:['#0f62fe','#23a559','#999']}]};
+  const B=+sBudget.value, CPL=+sCpl.value, CR=+sConv.value/100, AOV=+sAov.value, M=+sMargin.value/100;
+  const leads=Math.floor(B/CPL); const deals=Math.floor(leads*CR); const revenue=Math.round(deals*AOV);
+  const profit=Math.round(revenue*M - B); const romi=(profit/B*100);
+  document.getElementById('kLeads').textContent=f(leads);
+  document.getElementById('kDeals').textContent=f(deals);
+  document.getElementById('kRev').textContent=money(revenue);
+  document.getElementById('kProfit').textContent=money(profit);
+  document.getElementById('kRomi').textContent=(romi>=0?'+':'')+romi.toFixed(1)+'%';
+  const [g,m,o]=norm(+pGoogle?.value||0,+pMeta?.value||0,+pOther?.value||0);
+  const d={labels:['Google','Meta','Другие'],datasets:[{label:'Бюджет',data:[Math.round(B*g),Math.round(B*m),Math.round(B*o)],backgroundColor:['#0f62fe','#23a559','#999']}]};
   const opt={plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}};
-  if(ch) ch.destroy(); ch = new Chart(ctx, {type:'bar', data:d, options:opt});
+  if(ch) ch.destroy(); ch=new Chart(ctx,{type:'bar',data:d,options:opt});
 }
-document.getElementById('btnCalc').addEventListener('click', compute); compute();
+document.getElementById('btnCalc').addEventListener('click',compute); compute();
 </script>
 <script src="/assets/js/nav.js"></script></body></html>

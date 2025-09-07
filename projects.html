@@ -2,24 +2,26 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Проекты — SignalHub</title>
 <meta name="description" content="Пять кейсов: авто, электроника, услуги, офлайн, B2B. Таблицы и графики: слева затраты, справа прибыль.">
-<link rel="canonical" href="/projects.html"><link rel="stylesheet" href="/assets/css/main.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
-    <nav>
-      <a href="/">Главная</a>
-      <a href="/calculator.html">Генератор</a>
-      <a href="/projects.html">Проекты</a>
-      <a href="/contacts.html">Контакты</a>
+<link rel="canonical" href="/projects.html"><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/theme/creative/theme.css"></head><body>
+<header class="navbar navbar-expand-lg">
+  <div class="container bar">
+    <a class="navbar-brand logo" href="/">SignalHub</a>
+    <button class="navbar-toggler nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <nav class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="/calculator.html">Генератор</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects.html">Проекты</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacts.html">Контакты</a></li>
+      </ul>
     </nav>
   </div>
-  <!-- Прогресс чтения -->
   <div id="readProgress" aria-hidden="true"></div>
 </header>
-<main class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
-<div id="cases"></div></main>
-<footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<main>
+<section class="section"><div class="container"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p><div id="cases"></div></div></section>
+</main>
+<footer class="footer"><div class="container"><p class="small text-center">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 const f=(n)=>n.toLocaleString('ru-RU'); const money=(n)=>'€'+n.toLocaleString('ru-RU'); const host=document.getElementById('cases');
@@ -38,8 +40,7 @@ cases.forEach(cs=>{
     return {year:y, spend, leads, conv:cs.conv, deals, aov:cs.aov, rev, margin:cs.margin, profit, romi};
   });
   const wrap=document.createElement('section'); wrap.className='card mt-2';
-  wrap.innerHTML=`
-    <h2>${cs.title}</h2>
+  wrap.innerHTML=`<h2 class="h4">${cs.title}</h2>
     <div class="row">
       <div class="col">
         <table>
