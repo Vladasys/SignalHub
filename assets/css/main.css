@@ -6,8 +6,8 @@ header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-inde
 nav a{margin-left:14px;text-decoration:none;padding:8px 10px;border-radius:8px}
 nav a.active,nav a:hover{background:#111;color:#fff}
 .hero{background:#f7f8fb;border:1px solid #eee;border-radius:14px;padding:24px}
-.btn{display:inline-block;border:1px solid #111;padding:10px 14px;border-radius:10px;text-decoration:none}
-.btn:hover{background:#111;color:#fff}
+.btn{display:inline-block;border:1px solid #111;padding:10px 14px;border-radius:10px;text-decoration:none;background:#111;color:#fff}
+.btn:hover{background:#000;border-color:#000;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .card{border:1px solid #eee;border-radius:12px;padding:14px;background:#fafafa}
 .small{font-size:.92rem;color:#666}footer{border-top:1px solid #eee;color:#666}
@@ -52,7 +52,7 @@ th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3
 
 /* Works with */
 .works-list { display:flex; flex-wrap:wrap; gap:8px }
-.badge { border:1px solid #eee; border-radius:8px; padding:6px 10px }
+.works-list .badge { color:#111; background:#fff; border:1px solid #111; border-radius:20px; padding:6px 12px; font-size:.92rem }
 
 /* Sticky CTA */
 .sticky-cta { position:fixed; right:16px; bottom:16px; display:flex; gap:8px; z-index:20 }
