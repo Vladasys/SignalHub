@@ -72,3 +72,15 @@ th,td{border:1px solid #e6e6e6;padding:8px;text-align:center}th{background:#f0f3
   header nav a { display:block; margin:6px 0 0 0; padding:10px; border:1px solid #eee; border-radius:8px; word-break:break-word }
   .sticky-cta { left:16px; right:auto; bottom:12px; flex-wrap:wrap }
 }
+/* Layout */
+.layout { display:flex; min-height:100vh; }
+.topbar { position:fixed; top:0; left:0; right:0; height:60px; background:#fff; border-bottom:1px solid #eee; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:0 16px; }
+.sidebar { width:220px; padding-top:60px; background:#f7f8fb; border-right:1px solid #eee; }
+.content { flex:1; margin-top:60px; overflow:auto; }
+.loader { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.3); color:#000; font-weight:700; z-index:50; }
+.loader[hidden] { display:none; }
+@media (max-width:720px) {
+  .sidebar { position:fixed; top:60px; left:-220px; height:calc(100% - 60px); transition:left .3s; z-index:30; }
+  .sidebar.open { left:0; }
+  .content { margin-left:0; }
+}

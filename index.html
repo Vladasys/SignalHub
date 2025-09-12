@@ -6,21 +6,22 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/theme/creative/theme.css">
 </head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+<header class="topbar">
+  <div class="logo">SignalHub</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+</header>
+<div id="readProgress" aria-hidden="true"></div>
+<div class="layout">
+  <aside class="sidebar">
     <nav>
       <a href="/">Главная</a>
       <a href="/calculator.html">Генератор</a>
       <a href="/projects.html">Проекты</a>
       <a href="/contacts.html">Контакты</a>
     </nav>
-  </div>
-  <!-- Прогресс чтения -->
-  <div id="readProgress" aria-hidden="true"></div>
-</header>
-<main class="wrap">
+  </aside>
+  <main class="content">
+    <div class="wrap">
 <section class="hero"><h1>От клика к сделке — и обратно</h1>
 <p class="small">Сшиваем лиды, сделки и рекламу в один сигнал.</p>
 <p><a class="btn" href="/calculator.html">🚀 Запустить Генератор</a> <a class="btn" href="/projects.html">Кейсы</a> <a class="btn" href="/projects.html#charts">Графики</a></p></section>
@@ -207,10 +208,15 @@
   <p class="small">Если вашего инструмента нет в списке — уточните, скорее всего подключим</p>
 </section>
 
-<div class="sticky-cta">
-  <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
-  <a href="/contacts.html" class="btn">Обсудить проект</a>
+    </div>
+    <div class="sticky-cta">
+      <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
+      <a href="/contacts.html" class="btn">Обсудить проект</a>
+    </div>
+  </main>
 </div>
-</main>
 <footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub · от клика к выручке</p></footer>
+<div class="loader" hidden>Загрузка...</div>
+<script type="module" src="/assets/js/main.js"></script>
 <script src="assets/js/nav.js"></script></body></html>
+

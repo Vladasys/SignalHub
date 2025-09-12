@@ -3,28 +3,34 @@
 <title>Проекты — SignalHub</title>
 <meta name="description" content="Пять кейсов: авто, электроника, услуги, офлайн, B2B. Таблицы и графики: слева затраты, справа прибыль.">
 <link rel="canonical" href="projects.html"><link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/theme/creative/theme.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+<header class="topbar">
+  <div class="logo">SignalHub</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+</header>
+<div id="readProgress" aria-hidden="true"></div>
+<div class="layout">
+  <aside class="sidebar">
     <nav>
       <a href="/">Главная</a>
       <a href="/calculator.html">Генератор</a>
       <a href="/projects.html">Проекты</a>
       <a href="/contacts.html">Контакты</a>
     </nav>
-  </div>
-  <!-- Прогресс чтения -->
-  <div id="readProgress" aria-hidden="true"></div>
-</header>
-<main class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
-<div id="charts"></div><div id="cases"></div><div class="sticky-cta">
+  </aside>
+  <main class="content">
+    <div class="wrap"><h1>Проекты</h1><p class="small">Кейсы анонимизированы; важны закономерности. На графике: слева — рекламные затраты, справа — прибыль.</p>
+<div id="charts"></div><div id="cases"></div></div>
+<div class="sticky-cta">
   <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
   <a href="/contacts.html" class="btn">Обсудить проект</a>
-</div></main>
+</div>
+  </main>
+</div>
 <footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<div class="loader" hidden>Загрузка...</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="/assets/theme/creative/theme.js"></script>
+<script type="module" src="/assets/js/main.js"></script>
 <script>
 const f=(n)=>n.toLocaleString('ru-RU'); const money=(n)=>'€'+n.toLocaleString('ru-RU'); const host=document.getElementById('cases');
 const cases=[
@@ -66,3 +72,4 @@ cases.forEach(cs=>{
 });
 </script>
 <script src="assets/js/nav.js"></script></body></html>
+

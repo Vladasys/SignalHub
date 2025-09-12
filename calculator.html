@@ -3,21 +3,22 @@
 <title>Генератор — SignalHub</title>
 <meta name="description" content="Подвигай ползунки и посмотри, как меняются лиды, сделки, выручка и ROMI.">
 <link rel="canonical" href="calculator.html"><link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/theme/creative/theme.css"></head><body>
-<header>
-  <div class="wrap bar">
-    <div class="logo">SignalHub</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+<header class="topbar">
+  <div class="logo">SignalHub</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+</header>
+<div id="readProgress" aria-hidden="true"></div>
+<div class="layout">
+  <aside class="sidebar">
     <nav>
       <a href="/">Главная</a>
       <a href="/calculator.html">Генератор</a>
       <a href="/projects.html">Проекты</a>
       <a href="/contacts.html">Контакты</a>
     </nav>
-  </div>
-  <!-- Прогресс чтения -->
-  <div id="readProgress" aria-hidden="true"></div>
-</header>
-<main class="wrap">
+  </aside>
+  <main class="content">
+    <div class="wrap">
 <h1>Генератор</h1><p class="small">Формулы: Leads = Budget/CPL; Deals = Leads*Conv; Revenue = Deals*AOV; Profit = Revenue*Margin − Budget; ROMI = Profit/Budget.</p>
 <div class="row"><div class="col card"><div class="sliders">
 <label>Месячный бюджет, € <strong id="sBudgetV">10000</strong><br><input type="range" id="sBudget" min="1000" max="100000" step="500" value="10000"></label>
@@ -36,13 +37,18 @@
 <div class="card"><div class="small">Выручка</div><div id="kRev" style="font-size:22px;font-weight:800">—</div></div>
 <div class="card"><div class="small">Прибыль</div><div id="kProfit" style="font-size:22px;font-weight:800">—</div></div></div>
 <div class="card"><div class="small">ROMI</div><div id="kRomi" style="font-size:20px;font-weight:700">—</div></div>
-<canvas id="calcChart" class="mt-2" height="280"></canvas></div></div><div class="sticky-cta">
-  <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
-  <a href="/contacts.html" class="btn">Обсудить проект</a>
-</div></main>
+<canvas id="calcChart" class="mt-2" height="280"></canvas></div></div></div>
+    <div class="sticky-cta">
+      <a href="/calculator.html" class="btn">🚀 Посчитать сейчас</a>
+      <a href="/contacts.html" class="btn">Обсудить проект</a>
+    </div>
+  </main>
+</div>
 <footer class="wrap"><p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub</p></footer>
+<div class="loader" hidden>Загрузка...</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="/assets/theme/creative/theme.js"></script>
+<script type="module" src="/assets/js/main.js"></script>
 <script>
 const f = (n)=> n.toLocaleString('ru-RU'); const money = (n)=> '€'+n.toLocaleString('ru-RU');
 const sBudget = document.getElementById('sBudget'), sCpl = document.getElementById('sCpl'), sConv = document.getElementById('sConv'), sAov = document.getElementById('sAov'), sMargin = document.getElementById('sMargin');
@@ -69,3 +75,4 @@ function compute(){
 document.getElementById('btnCalc').addEventListener('click', compute); compute();
 </script>
 <script src="assets/js/nav.js"></script></body></html>
+
