@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SignalHub — от клика к сделке</title>
+  <desc id="desc">Темный фон с акцентными линиями графов, иллюстрирующими аналитику SignalHub.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f1420" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+    <linearGradient id="pulse" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6e8bff" stop-opacity="0.45" />
+      <stop offset="0.5" stop-color="#4bd5c3" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#6e8bff" stop-opacity="0.2" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#6e8bff" stop-opacity="0.18" />
+      <stop offset="0.55" stop-color="#4bd5c3" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#070a12" stop-opacity="0" />
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+    </filter>
+    <linearGradient id="stroke" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#4bd5c3" />
+      <stop offset="1" stop-color="#6e8bff" />
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#1f2632" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4" />
+  <circle cx="980" cy="120" r="220" fill="url(#glow)" filter="url(#blur)" opacity="0.9" />
+  <circle cx="260" cy="460" r="260" fill="url(#glow)" filter="url(#blur)" opacity="0.7" />
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M80 420 Q210 300 360 360 T600 320 T880 240 T1120 300" stroke="url(#stroke)" stroke-width="6" opacity="0.85" />
+    <path d="M120 500 Q260 420 380 470 T640 420 T920 360 T1100 420" stroke="#243356" stroke-width="8" opacity="0.65" />
+    <path d="M100 250 Q210 160 360 220 T600 200 T820 140 T1080 200" stroke="#2f3f66" stroke-width="4" opacity="0.6" />
+  </g>
+  <g fill="#0e1116" opacity="0.9">
+    <rect x="290" y="140" width="620" height="360" rx="28" fill="#141b27" opacity="0.82" />
+    <rect x="320" y="180" width="560" height="260" rx="20" fill="#101621" />
+  </g>
+  <g transform="translate(350 220)">
+    <rect x="0" y="0" width="420" height="180" rx="18" fill="#151d29" stroke="rgba(110,139,255,0.3)" />
+    <path d="M40 160 Q110 60 190 110 T320 70" stroke="url(#pulse)" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M60 150 L60 90" stroke="#4bd5c3" stroke-width="5" stroke-linecap="round" />
+    <path d="M110 150 L110 70" stroke="#6e8bff" stroke-width="5" stroke-linecap="round" />
+    <path d="M160 150 L160 120" stroke="#4bd5c3" stroke-width="5" stroke-linecap="round" />
+    <path d="M210 150 L210 40" stroke="#6e8bff" stroke-width="5" stroke-linecap="round" />
+    <path d="M260 150 L260 90" stroke="#4bd5c3" stroke-width="5" stroke-linecap="round" />
+    <path d="M310 150 L310 60" stroke="#6e8bff" stroke-width="5" stroke-linecap="round" />
+    <circle cx="210" cy="40" r="10" fill="#4bd5c3" opacity="0.9" />
+    <circle cx="320" cy="70" r="10" fill="#6e8bff" opacity="0.9" />
+  </g>
+  <g transform="translate(350 450)">
+    <rect width="420" height="10" rx="5" fill="#1f2734" />
+    <rect width="210" height="10" rx="5" fill="#4bd5c3" />
+  </g>
+  <g fill="#e6e9ef" font-family="'Inter', 'Segoe UI', Roboto, sans-serif" font-weight="600">
+    <text x="350" y="360" font-size="44" letter-spacing="0.04em">Атрибуция по реальным сделкам</text>
+  </g>
+  <g fill="#a9b1bd" font-family="'Inter', 'Segoe UI', Roboto, sans-serif" font-size="24">
+    <text x="350" y="400">Каждый сигнал = вклад в прибыль</text>
+  </g>
+  <g fill="#e6e9ef" font-family="'Inter', 'Segoe UI', Roboto, sans-serif">
+    <text x="320" y="130" font-size="64" font-weight="700">SignalHub</text>
+    <text x="320" y="170" font-size="26" fill="#a9b1bd">От клика к сделке — и обратно</text>
+  </g>
+  <g transform="translate(940 170)">
+    <circle cx="0" cy="0" r="48" fill="#151d29" stroke="#273347" stroke-width="2" />
+    <path d="M-18 8 l12-24 14 18 12-10" fill="none" stroke="#4bd5c3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="-6" cy="-4" r="4" fill="#6e8bff" />
+    <circle cx="14" cy="-12" r="5" fill="#4bd5c3" opacity="0.8" />
+  </g>
+</svg>
