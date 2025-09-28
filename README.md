@@ -34,5 +34,21 @@ SignalHub показывает, что *на самом деле* приноси
 
 ---
 
-🚀 Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)  
+🚀 Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)
 📊 Engineered for clarity, speed, and scale.
+
+## Development notes
+
+- Все HTML-страницы должны содержать Google Analytics-тег сразу после открытия тега `<head>`:
+
+  ```html
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W93MFG4YF"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9W93MFG4YF');
+  </script>
+  ```
