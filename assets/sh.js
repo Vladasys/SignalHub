@@ -52,6 +52,43 @@
     });
   }
 
+  // Specialist notice for first-time visitors
+  const notice = doc.getElementById('specialistNotice');
+  const noticeClose = doc.getElementById('specialistNoticeClose');
+  const noticeKey = 'sh-specialist-notice';
+  const getStore = () => {
+    const stores = [window.localStorage, window.sessionStorage];
+    for (const store of stores) {
+      if (!store) continue;
+      try {
+        const testKey = '__shNoticeTest__';
+        store.setItem(testKey, '1');
+        store.removeItem(testKey);
+        return store;
+      } catch (error) {
+        continue;
+      }
+    }
+    return null;
+  };
+  const store = getStore();
+  const hasSeenNotice = store ? store.getItem(noticeKey) === '1' : false;
+  if (notice && noticeClose && !hasSeenNotice) {
+    notice.hidden = false;
+    notice.classList.add('is-active');
+    noticeClose.addEventListener('click', () => {
+      notice.classList.remove('is-active');
+      notice.setAttribute('hidden', '');
+      if (store) {
+        try {
+          store.setItem(noticeKey, '1');
+        } catch (error) {
+          /* noop */
+        }
+      }
+    });
+  }
+
   // Reading progress
   const progress = doc.getElementById('readProgress');
   const main = doc.getElementById('main-content');

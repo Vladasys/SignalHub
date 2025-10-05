@@ -50,7 +50,9 @@ cases.forEach(cs=>{
     const profit=Math.round(rev*cs.margin - spend); const romi=profit/spend;
     return {year:y, spend, leads, conv:cs.conv, deals, aov:cs.aov, rev, margin:cs.margin, profit, romi};
   });
-  const wrap=document.createElement('section'); wrap.className='card mt-2';
+  const wrap=document.createElement('section');
+  wrap.className='card mt-2';
+  wrap.id = cs.key;
   wrap.innerHTML=`
     <h2>${cs.title}</h2>
     <div class="row">

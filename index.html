@@ -27,6 +27,12 @@
   <script defer src="/assets/sh.js"></script>
 </head>
 <body>
+  <div class="sh-notice" id="specialistNotice" role="region" aria-live="polite" hidden>
+    <div class="sh-wrap">
+      <p>Материалы на сайте имеют узкую профессиональную направленность и предназначены только для специалистов.</p>
+      <button type="button" class="sh-notice-close" id="specialistNoticeClose" aria-label="Закрыть предупреждение">Понятно</button>
+    </div>
+  </div>
   <header class="sh-hero" data-section="hero">
     <div class="sh-hero-bg" aria-hidden="true">
       <div class="sh-hero-grid"></div>
@@ -184,7 +190,7 @@
           <h2>Пара кейсов</h2>
         </div>
         <div class="grid">
-          <a class="card case reveal" href="/projects.html">
+          <a class="card case reveal" href="/projects.html#auto">
             <div class="case-media"><img src="/assets/showcase-retail.svg" alt="Рост выручки в авто-ритейле" loading="lazy" decoding="async"></div>
             <div>Авто-ритейл — остановили пожирателя бюджета, выручка пошла вверх</div>
             <svg class="spark" viewBox="0 0 60 24" aria-hidden="true">
@@ -192,7 +198,7 @@
               <polyline class="rev" points="0,10 20,11 40,14 60,17"></polyline>
             </svg>
           </a>
-          <a class="card case reveal" href="/projects.html">
+          <a class="card case reveal" href="/projects.html#electronics">
             <div class="case-media"><img src="/assets/showcase-growth.svg" alt="Диаграмма по электронике" loading="lazy" decoding="async"></div>
             <div>Электроника — разгрузили ретаргет, открыли новые точки роста</div>
             <svg class="spark" viewBox="0 0 60 24" aria-hidden="true">
@@ -200,7 +206,7 @@
               <polyline class="rev" points="0,10 20,11 40,14 60,17"></polyline>
             </svg>
           </a>
-          <a class="card case reveal" href="/projects.html">
+          <a class="card case reveal" href="/projects.html#b2b">
             <div class="case-media"><img src="/assets/showcase-b2b.svg" alt="График по B2B" loading="lazy" decoding="async"></div>
             <div>B2B-услуги — сигналы с высокими чеками дали кратный эффект</div>
             <svg class="spark" viewBox="0 0 60 24" aria-hidden="true">
@@ -268,8 +274,8 @@
           <h2>Честно о границах метода</h2>
           <p>Мы не рисуем чудес. Если продукт не покупают — дело не в пикселях. Но если покупают — мы покажем, откуда пришли деньги и где ускоряться.</p>
           <ul>
-            <li>Не обещаем «в 10 раз за неделю» — обещаем прозрачность.</li>
-            <li>Если данные хаос — сначала приводим их в порядок.</li>
+            <li>Не обещаем x2 за неделю, но обещаем прозрачность: если данные — хаос, начинаем с их наведения порядка.</li>
+            <li>Приводим разношёрстные источники к одной схеме, прежде чем считать эффективность.</li>
             <li>Решения принимаем по сделкам и выручке, не по лайкам.</li>
           </ul>
         </div>
@@ -303,7 +309,7 @@
           <div class="logo"><img src="/assets/logos/logo-offline.svg" alt="Логотип Offline Capture" loading="lazy" decoding="async"></div>
           <div class="logo"><img src="/assets/logos/logo-call.svg" alt="Логотип Call Flow" loading="lazy" decoding="async"></div>
         </div>
-        <p class="small reveal">Если вашего инструмента нет в списке — уточните, скорее всего подключим</p>
+        <p class="small reveal">Не работаем с недвижимостью и модой.</p>
       </div>
     </section>
   </main>
