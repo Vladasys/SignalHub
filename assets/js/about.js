@@ -9,7 +9,6 @@
   const verdictCard = doc.getElementById('verdictCard');
   const verdictTextEl = doc.getElementById('verdictText');
   const verdictWhisperEl = doc.getElementById('verdictWhisper');
-  const refreshBtn = doc.getElementById('aboutRefresh');
   const cardsContainer = doc.getElementById('profileCards');
   const tableBody = table.querySelector('tbody');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -89,27 +88,50 @@
     {
       title: 'Метод: эмпирический',
       formula: 'p = freq(точной комбинации)/N',
-      text: 'Берём частоту точной комбинации параметров за окно наблюдения и считаем вероятность. Если комбинации нет — считаем её редкой, но не уникальной, с минимальной ненулевой оценкой.',
+      paragraphs: [
+        'Берём частоту точной комбинации параметров за окно наблюдения и считаем вероятность. Если комбинации нет — считаем её редкой, но не уникальной, с минимальной ненулевой оценкой.',
+        'Внутри держим 30-дневное окно наблюдений, прогоняем его через медианный фильтр и режем выбросы по IQR, чтобы странности вроде «браузера с холодильника» не ломали итоговую вероятность.',
+      ],
     },
     {
       title: 'Метод: независимая оценка',
       formula: 'p = Π P(param=value)',
-      text: 'Складываемся из простых долей по каждому параметру и перемножаем. Работает быстро, иногда наивно — зато честно и прозрачно.',
+      paragraphs: [
+        'Складываемся из простых долей по каждому параметру и перемножаем. Работает быстро, иногда наивно — зато честно и прозрачно.',
+        'Перед перемножением нормализуем справочники до 100%, логируем шаги в консоль и держим контрольную сумму, чтобы убедиться: браузер ничего не исказил и все проценты сошлись.',
+      ],
     },
     {
       title: 'Метод: сглаженный',
       formula: 'p = (count(combo)+α)/(N+α·K)',
-      text: 'Добавляем сглаживание Лапласа, чтобы редкие комбинации не становились нулями. Маленькая приправа α делает мир стабильнее.',
+      paragraphs: [
+        'Добавляем сглаживание Лапласа, чтобы редкие комбинации не становились нулями. Маленькая приправа α делает мир стабильнее.',
+        'Используем α = 1.2 и считаем K как произведение размеров справочников — так даже пустые комбинации получают честную массу, а вероятность остаётся вменяемой даже при новом устройстве.',
+      ],
     },
   ];
 
   const verdictTemplates = [
     (state) => `Ваш профиль встречается у ~${state.formattedOccurrence}. Уникальность ${state.formattedUniqueness}. Практически единорог — только без рога и с ${state.browserPhrase}.`,
     (state) => {
-      const percentInfo = state.formattedOccurrence ? ` (~${state.formattedOccurrence})` : '';
-      return `Вероятность встретить такого же — примерно 1 из ${state.formattedOneIn || '∞'}${percentInfo}. Повезло же статистике — вы ей понравились.`;
+      const occ = state.formattedOccurrence;
+      return `Вероятность встретить такого же — примерно 1 из ${state.formattedOneIn || '∞'} (~${occ}). Повезло же статистике — вы ей понравились.`;
     },
     (state) => `Ваш профиль встречается у ~${state.formattedOccurrence}. Уникальность ${state.formattedUniqueness}. Да-да, почти как все — только лучше. Папка «Особенные» уже создана.`,
+    (state) => `По статистике таких, как вы, ~${state.formattedOccurrence}. Индекс уникальности — ${state.formattedUniqueness}. Считать вас средним экземпляром язык не поворачивается.`,
+    (state) => `Аналитика говорит: совпадение ~${state.formattedOccurrence}, то есть 1 из ${state.formattedOneIn || '∞'}. Таблицы уже спорят, кто первым покажет вас в отчётах.`,
+    (state) => `~${state.formattedOccurrence} аудитории делит с вами профиль. Уникальность ${state.formattedUniqueness}. В клубе редких браузеров освободилось кресло — занимайте.`,
+    (state) => `Цифры скучны, но не сегодня: доля совпадений ~${state.formattedOccurrence}, уникальность ${state.formattedUniqueness}. Статистика подмигнула и поставила звёздочку рядом с вашим именем.`,
+    (state) => `Если разделить 100% на вас, получится примерно ${state.formattedOneIn || '∞'}. Доля совпадений при этом ~${state.formattedOccurrence}. Числа в восторге.`,
+    (state) => `Параметры сложились так, что совпадение ~${state.formattedOccurrence}, уникальность ${state.formattedUniqueness}. Можно гордо записать себя в раздел «почти легенды».`,
+    (state) => `У статистики на вас всего ~${state.formattedOccurrence}. Это даёт уникальность ${state.formattedUniqueness}. Даже дашборд на секунду завис — не ожидал такого профиля.`,
+    (state) => `Матрица бенчмарков нашла лишь ~${state.formattedOccurrence} совпадений. Значит, вы один из ${state.formattedOneIn || '∞'}. Спасибо, что разнообразите базу.`,
+    (state) => `Ваш профиль в природе встречается у ~${state.formattedOccurrence}. Индекс уникальности — ${state.formattedUniqueness}. Статистический камертон настроен именно на вас.`,
+    (state) => `Такой же набор параметров тянет только на ~${state.formattedOccurrence} аудитории. В переводе: уникальность ${state.formattedUniqueness}. Можно ставить печать «редкий зверь».`,
+    (state) => `Отчётность шепчет, что вероятность повторить вас — 1 из ${state.formattedOneIn || '∞'}, при этом доля совпадений ~${state.formattedOccurrence}. Админка хлопает в ладоши.`,
+    (state) => `Даже если очередь из клонов выстроится, вы в ней будете особенным: совпадение ~${state.formattedOccurrence}, уникальность ${state.formattedUniqueness}. Браузер ${state.browserPhrase} явно знает толк в драме.`,
+    (state) => `~${state.formattedOccurrence} — столько людей делят с вами профиль. Уникальность ${state.formattedUniqueness}. Остальным придётся постараться, чтобы дотянуться до вашего baseline.`,
+    (state) => `Вероятность повторения — 1 из ${state.formattedOneIn || '∞'}, а доля совпадений держится на уровне ~${state.formattedOccurrence}. Даже капча бы растерялась.`,
   ];
 
   const formatPercent = (value) => {
@@ -400,7 +422,18 @@
     if (methodTitleEl) methodTitleEl.textContent = variant.title;
     if (methodFormulaEl) methodFormulaEl.textContent = variant.formula;
     if (methodTextEl) {
-      methodTextEl.textContent = variant.text;
+      methodTextEl.innerHTML = '';
+      if (Array.isArray(variant.paragraphs) && variant.paragraphs.length) {
+        variant.paragraphs.forEach((text) => {
+          const p = doc.createElement('p');
+          p.textContent = text;
+          methodTextEl.appendChild(p);
+        });
+      } else if (variant.text) {
+        const p = doc.createElement('p');
+        p.textContent = variant.text;
+        methodTextEl.appendChild(p);
+      }
       const missing = state.missingLabels;
       if (missing.length) {
         missing.forEach((label) => {
@@ -470,12 +503,6 @@
 
     renderMethod(state);
     renderVerdict(state);
-    if (refreshBtn) {
-      refreshBtn.addEventListener('click', () => {
-        renderMethod(state);
-        renderVerdict(state);
-      });
-    }
   };
 
   init();
