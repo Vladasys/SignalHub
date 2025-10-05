@@ -160,6 +160,27 @@ p,li{color:var(--sh-dim)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{background:rgba(110,139,255,.08);border:1px solid rgba(110,139,255,.35);color:var(--sh-accent-2)}
 .btn-ghost:hover{border-color:var(--sh-accent-2);background:rgba(75,213,195,.12)}
+.btn-signal{
+  position:relative;
+  border:1px solid transparent;
+  color:var(--sh-txt);
+  background:
+    linear-gradient(135deg,rgba(110,139,255,.18),rgba(75,213,195,.14)) padding-box,
+    linear-gradient(135deg,rgba(110,139,255,.85),rgba(75,213,195,.85)) border-box;
+  box-shadow:0 12px 32px rgba(17,120,255,.25);
+}
+.btn-signal::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:radial-gradient(180% 140% at 20% -10%,rgba(255,255,255,.55),transparent 55%);
+  opacity:.45;
+  mix-blend-mode:screen;
+  transition:opacity var(--sh-speed) var(--sh-ease);
+  pointer-events:none;
+}
+.btn-signal:hover::after{opacity:.7}
 .btn:focus-visible{outline:2px solid var(--sh-accent-2);outline-offset:3px}
 
 header nav{display:flex;gap:18px;align-items:center}
@@ -364,6 +385,9 @@ body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-4
 .sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translate(-50%,48px);transition:opacity var(--sh-speed) var(--sh-ease),transform var(--sh-speed) var(--sh-ease)}
 
 .sh-footer{background:rgba(8,11,16,.92);border-top:1px solid rgba(110,139,255,.12);padding:clamp(24px,4vw,32px) 0;margin-top:80px}
+.sh-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-bottom:18px}
+.sh-footer-nav a{color:var(--sh-dim);font-weight:600;font-size:.95rem;padding:6px 10px;border-radius:10px;transition:color var(--sh-speed) var(--sh-ease),background var(--sh-speed) var(--sh-ease)}
+.sh-footer-nav a:hover,.sh-footer-nav a:focus-visible{color:var(--sh-txt);background:rgba(110,139,255,.1)}
 .sh-footer .small{color:var(--sh-mute);text-align:center}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity var(--sh-speed) var(--sh-ease),transform var(--sh-speed) var(--sh-ease)}
@@ -374,7 +398,12 @@ body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-4
 img{max-width:100%;display:block}
 
 @media (max-width:960px){
-  .sh-topbar{padding:12px 16px}
+  .sh-topbar{
+    padding:12px 16px;
+    top:0;
+    border-radius:0;
+    margin-bottom:clamp(32px,8vw,56px);
+  }
   .nav-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center}
   header nav{position:absolute;top:100%;left:0;right:0;background:rgba(12,16,22,.95);border-radius:16px;margin-top:12px;padding:16px 18px;flex-direction:column;gap:14px;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height var(--sh-speed) var(--sh-ease),opacity var(--sh-speed) var(--sh-ease)}
   header nav a{width:100%;padding:12px 0}
