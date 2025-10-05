@@ -364,6 +364,9 @@ body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-4
 .sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translate(-50%,48px);transition:opacity var(--sh-speed) var(--sh-ease),transform var(--sh-speed) var(--sh-ease)}
 
 .sh-footer{background:rgba(8,11,16,.92);border-top:1px solid rgba(110,139,255,.12);padding:clamp(24px,4vw,32px) 0;margin-top:80px}
+.sh-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-bottom:18px}
+.sh-footer-nav a{color:var(--sh-dim);font-weight:600;font-size:.95rem;padding:6px 10px;border-radius:10px;transition:color var(--sh-speed) var(--sh-ease),background var(--sh-speed) var(--sh-ease)}
+.sh-footer-nav a:hover,.sh-footer-nav a:focus-visible{color:var(--sh-txt);background:rgba(110,139,255,.1)}
 .sh-footer .small{color:var(--sh-mute);text-align:center}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity var(--sh-speed) var(--sh-ease),transform var(--sh-speed) var(--sh-ease)}

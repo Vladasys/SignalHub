@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W93MFG4YF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9W93MFG4YF');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>О вас — SignalHub</title>
+  <meta name="description" content="Собираем ваш техпрофиль, сравниваем со средними долями и считаем индекс уникальности без паролей и без лишних вопросов.">
+  <link rel="canonical" href="/about-you.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/sh.css">
+  <link rel="stylesheet" href="/assets/about.css">
+  <script defer src="/assets/sh.js"></script>
+  <script defer src="/assets/js/about.js"></script>
+</head>
+<body class="about-page">
+  <header class="sh-page-header" data-section="header">
+    <div class="sh-wrap">
+      <div class="sh-topbar">
+        <div class="logo" aria-label="SignalHub">SignalHub</div>
+        <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav aria-label="Главное меню">
+          <a href="/">Главная</a>
+          <a href="/calculator.html">Генератор</a>
+          <a href="/projects.html">Проекты</a>
+          <a href="/about-you.html" class="is-active" aria-current="page">О вас</a>
+          <a href="/contacts.html">Контакты</a>
+        </nav>
+      </div>
+      <div class="about-intro">
+        <h1>О вас</h1>
+        <p class="lead">Ни логинов, ни паролей — только статистика. Чуть-чуть любопытства и немного сарказма.</p>
+      </div>
+    </div>
+    <div id="readProgress" aria-hidden="true"></div>
+  </header>
+  <main class="sh-main" id="main-content">
+    <div class="sh-wrap about-grid">
+      <aside class="about-context" aria-label="Контекстное меню">
+        <nav aria-label="Навигация по сайту">
+          <h2 class="sr-only">Навигация по сайту</h2>
+          <a href="/">Главная</a>
+          <a href="/calculator.html">Генератор</a>
+          <a href="/projects.html">Проекты</a>
+          <a href="/about-you.html" class="is-active" aria-current="page">О вас</a>
+          <a href="/contacts.html">Контакты</a>
+        </nav>
+        <div class="about-context-sections" aria-label="Навигация по странице">
+          <span class="context-label">Разделы</span>
+          <a href="#profile">Профиль</a>
+          <a href="#method">Метод</a>
+          <a href="#verdictCard">Вывод</a>
+        </div>
+      </aside>
+      <div class="about-content">
+        <section class="about-section card about-profile" id="profile">
+          <div class="section-head">
+            <h2>Ваш профиль посетителя</h2>
+          </div>
+          <div class="profile-table-wrap">
+            <table class="profile-table" id="profileTable">
+              <thead>
+                <tr>
+                  <th scope="col">Параметр</th>
+                  <th scope="col">Ваше значение</th>
+                  <th scope="col">Встречается у (%)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="profile-cards" id="profileCards" aria-live="polite"></div>
+          <p class="profile-note small">Доли - усреднённые по публичной статистике. Для красоты и сравнения.</p>
+        </section>
+        <section class="about-section card about-method" id="method">
+          <div class="section-head">
+            <h2>Как мы считали</h2>
+          </div>
+          <div class="method">
+            <div class="method-title" id="methodTitle"></div>
+            <code class="method-formula" id="methodFormula"></code>
+            <p class="method-text" id="methodText"></p>
+          </div>
+        </section>
+        <section class="about-section card about-verdict" id="verdictCard">
+          <div class="verdict-text" id="verdictText" aria-live="polite"></div>
+          <p class="verdict-whisper small" id="verdictWhisper" hidden></p>
+          <button type="button" class="btn btn-ghost about-refresh" id="aboutRefresh">Обновить</button>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="sh-footer" data-section="footer">
+    <div class="sh-wrap">
+      <nav class="sh-footer-nav" aria-label="Футер-меню">
+        <a href="/">Главная</a>
+        <a href="/calculator.html">Генератор</a>
+        <a href="/projects.html">Проекты</a>
+        <a href="/about-you.html" aria-current="page">О вас</a>
+        <a href="/contacts.html">Контакты</a>
+      </nav>
+      <p class="small">© <script>document.write(new Date().getFullYear())</script> SignalHub · от клика к выручке</p>
+    </div>
+  </footer>
+</body>
+</html>
