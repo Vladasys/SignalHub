@@ -28,10 +28,6 @@ SignalHub shows what *really* drives growth.
 - Строит реальные модели атрибуции  
 - Даёт понятные инсайты для роста  
 
-## Почему SignalHub?
-Потому что пиксели врут, а сделки — нет.  
-SignalHub показывает, что *на самом деле* приносит результат.
-
 ---
 
 🚀 Deployed on [Cloudflare Pages](https://pages.cloudflare.com/)
